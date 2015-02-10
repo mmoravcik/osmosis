@@ -1,4 +1,4 @@
-#STANDARD LIB
+# STANDARD LIB
 from contextlib import nested
 import StringIO
 
@@ -76,7 +76,7 @@ class ImportTaskTests(TestCase):
                             self.assertEqual(1, task.shards_processed)
 
                             shard1.process()
-                            self.assertEqual(1, task.shards_processed) #If the shard retries, don't increment again
+                            self.assertEqual(1, task.shards_processed)  # If the shard retries, don't increment again
 
                             shard2.process()
                             self.assertEqual(2, task.shards_processed)
@@ -96,7 +96,7 @@ class ImportTaskTests(TestCase):
 
             with mock.patch('google.appengine.ext.deferred.defer') as def_patch:
                 task.save()
-                self.assertFalse(def_patch.called) #Already been called, so shouldn't happen again
+                self.assertFalse(def_patch.called)  # Already been called, so shouldn't happen again
 
     def test_error_callback_on_error(self):
         pass

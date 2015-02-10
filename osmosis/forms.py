@@ -14,6 +14,6 @@ class BooleanInterpreterMixin(object):
         for field_name, field in self.fields.items():
             if (
                 isinstance(field, forms.BooleanField) and
-                field_name not in explicit_widgets # don't alter widgets which have been manually specified
+                field_name not in explicit_widgets  # Don't alter widgets which have been manually specified
             ):
                 field.widget = forms.Widget()
